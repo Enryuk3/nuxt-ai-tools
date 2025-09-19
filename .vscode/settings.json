@@ -56,5 +56,12 @@
   "tailwindCSS.classAttributes": ["class", "ui"],
   "tailwindCSS.experimental.classRegex": [
     ["ui:\\s*{([^)]*)\\s*}", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+  "cSpell.words": [
+    "datasource",
+    "libsql",
+    "postgresql",
+    "sqlite",
+    "turso"
   ]
 }

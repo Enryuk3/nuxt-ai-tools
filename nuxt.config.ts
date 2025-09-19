@@ -10,6 +10,17 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/ui',
   ],
+  runtimeConfig: {
+    tursoDatabaseUrl: '',
+    tursoAuthToken: '',
+    githubClientId: '',
+    githubClientSecret: '',
+    googleClientId: '',
+    googleClientSecret: '',
+    public: {
+      appEnv: '',
+    },
+  },
   eslint: {
     config: {
       standalone: false,
