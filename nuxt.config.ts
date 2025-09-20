@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxt/ui',
+    '@nuxtjs/mdc',
   ],
   runtimeConfig: {
     tursoDatabaseUrl: '',
@@ -17,6 +18,7 @@ export default defineNuxtConfig({
     githubClientSecret: '',
     googleClientId: '',
     googleClientSecret: '',
+    geminiApi: '',
     public: {
       appEnv: '',
     },
