@@ -58,6 +58,7 @@
     ["ui:\\s*{([^)]*)\\s*}", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
   ],
   "cSpell.words": [
+    "cloudinary",
     "datasource",
     "libsql",
     "postgresql",
