@@ -60,9 +60,12 @@
   "cSpell.words": [
     "cloudinary",
     "datasource",
+    "gemini",
     "libsql",
+    "openai",
     "postgresql",
     "sqlite",
-    "turso"
+    "turso",
+    "unpdf"
   ]
 }
