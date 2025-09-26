@@ -67,7 +67,7 @@ const isLoading = ref(false)
 const error = ref<AppError | null>(null)
 const mappedImageUrl = ref('')
 
-async function generateArticle(event: FormSubmitEvent<Schema>) {
+async function removeBackground(event: FormSubmitEvent<Schema>) {
   try {
     isLoading.value = true
 
@@ -119,7 +119,7 @@ async function generateArticle(event: FormSubmitEvent<Schema>) {
                 :schema="schema"
                 :state="state"
                 class="space-y-4 w-96"
-                @submit="generateArticle"
+                @submit="removeBackground"
               >
                 <UFormField name="image" label="Image" description="JPG, GIF or PNG. 2MB Max.">
                   <UFileUpload v-model="state.image" accept="image/*" class="min-h-48" />
