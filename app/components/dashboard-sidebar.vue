@@ -19,6 +19,8 @@ import { sidebarRoutes } from '~~/constants/tools'
           />
         </div>
       </div>
+
+      <UserCounter />
     </div>
   </aside>
 </template>
