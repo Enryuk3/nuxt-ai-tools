@@ -5,13 +5,13 @@ export default defineEventHandler(async (event) => {
 
   if (!blogTopic) {
     throw createError({
-      statusCode: 4000,
+      statusCode: 400,
       statusMessage: 'Blog topic is required',
     })
   }
   if (!blogCategory) {
     throw createError({
-      statusCode: 4000,
+      statusCode: 400,
       statusMessage: 'Blog category is required',
     })
   }

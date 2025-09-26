@@ -5,7 +5,7 @@ export default defineEventHandler(async (event) => {
 
   if (!articleTopic) {
     throw createError({
-      statusCode: 4000,
+      statusCode: 400,
       statusMessage: 'Article topic is required',
     })
   }

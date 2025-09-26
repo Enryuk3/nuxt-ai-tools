@@ -1,11 +1,14 @@
+import { requireAuth } from '~~/server/services/better-auth'
+import { incrementApiLimit } from '~~/server/services/user-api-limits'
 import { openai } from '~~/server/utils/openai'
 
-export default defineEventHandler(async (event) => {
+export default defineAuthenticatedEventHandler(async (event) => {
+  await requireAuth(event)
   const { messages } = await readBody(event)
 
   if (!messages) {
     throw createError({
-      statusCode: 4000,
+      statusCode: 400,
       statusMessage: 'Messages are required',
     })
   }
@@ -24,6 +27,8 @@ export default defineEventHandler(async (event) => {
     ],
     temperature: 0.5,
   })
+
+  await incrementApiLimit(event.context.user.id)
 
   return res.choices[0].message.content
 })
