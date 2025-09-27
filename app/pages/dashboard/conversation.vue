@@ -47,11 +47,15 @@ async function sendMessage(event: FormSubmitEvent<Schema>) {
         content: data,
       })
 
+      await refreshNuxtData('userData')
       state.userPrompt = ''
     }
   }
   catch (e) {
     const err = e as FetchError
+    if (err.statusCode === 401) {
+      navigateTo('/auth/login')
+    }
     error.value = getError(err)
   }
   finally {
