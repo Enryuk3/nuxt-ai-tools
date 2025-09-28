@@ -13,6 +13,8 @@
     "lint:fix": "eslint --fix"
   },
   "dependencies": {
+    "@polar-sh/better-auth": "^1.1.4",
+    "@polar-sh/sdk": "^0.35.2",
     "@prisma/adapter-libsql": "^6.16.2",
     "@prisma/client": "^6.16.2",
     "better-auth": "^1.3.11",

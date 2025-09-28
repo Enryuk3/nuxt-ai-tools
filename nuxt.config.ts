@@ -22,6 +22,10 @@ export default defineNuxtConfig({
     cloudinaryCloudName: '',
     cloudinaryApiKey: '',
     cloudinaryApiSecret: '',
+    polarAccessToken: '',
+    polarServer: '',
+    polarWebhookSecret: '',
+    polarProductId: '',
     public: {
       appEnv: '',
     },

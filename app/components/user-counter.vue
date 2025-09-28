@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { MAX_COUNT } from '~~/shared/utils/user-api-limit'
 
+const { upgradeUserToPro } = useAuth()
+
 const { data: userData, status } = await useFetch('/api/user', {
   key: 'userData',
 })
@@ -28,7 +30,12 @@ const progress = computed(() => {
           </p>
           <UProgress :model-value="progress" />
         </div>
-        <UButton icon="i-lucide:zap" color="error" class="w-full justify-center">
+        <UButton
+          icon="i-lucide:zap"
+          color="error"
+          class="w-full justify-center"
+          @click="upgradeUserToPro"
+        >
           Upgrade
         </UButton>
       </div>
