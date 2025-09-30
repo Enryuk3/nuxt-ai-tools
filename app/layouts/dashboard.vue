@@ -7,5 +7,6 @@
         <slot />
       </div>
     </div>
+    <ProModal />
   </div>
 </template>

@@ -13,6 +13,7 @@ const items = ref<DropdownMenuItem[]>([
   {
     label: 'Billing',
     icon: 'i-lucide-credit-card',
+    to: '/dashboard/settings',
   },
   {
     label: 'Logout',

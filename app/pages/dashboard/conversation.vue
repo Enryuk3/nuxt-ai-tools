@@ -26,6 +26,7 @@ const messages = ref<Message[]>([])
 
 const isLoading = ref(false)
 const error = ref<AppError | null>(null)
+const { toggleModalState } = useProModal()
 
 async function sendMessage(event: FormSubmitEvent<Schema>) {
   try {
@@ -53,6 +54,9 @@ async function sendMessage(event: FormSubmitEvent<Schema>) {
   }
   catch (e) {
     const err = e as FetchError
+    if (err.statusCode === 403) {
+      toggleModalState(true)
+    }
     if (err.statusCode === 401) {
       navigateTo('/auth/login')
     }

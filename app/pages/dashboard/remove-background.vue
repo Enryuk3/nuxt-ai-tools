@@ -66,6 +66,7 @@ const state = reactive<Partial<Schema>>({
 const isLoading = ref(false)
 const error = ref<AppError | null>(null)
 const mappedImageUrl = ref('')
+const { toggleModalState } = useProModal()
 
 async function removeBackground(event: FormSubmitEvent<Schema>) {
   try {
@@ -87,6 +88,12 @@ async function removeBackground(event: FormSubmitEvent<Schema>) {
   }
   catch (e) {
     const err = e as FetchError
+    if (err.statusCode === 401) {
+      navigateTo('/auth/login')
+    }
+    if (err.statusCode === 403) {
+      toggleModalState(true)
+    }
     error.value = getError(err)
   }
   finally {
