@@ -8,14 +8,17 @@ import {
 import { Polar } from '@polar-sh/sdk'
 
 const { polarAccessToken, polarServer, polarProductId, polarWebhookSecret } = useRuntimeConfig()
-const polarClient = new Polar({
-  accessToken: polarAccessToken,
-  server: polarServer as 'production' | 'sandbox',
-})
+
+function polarClient() {
+  return new Polar({
+    accessToken: polarAccessToken,
+    server: polarServer as 'production' | 'sandbox',
+  })
+}
 
 export function setupPolar() {
   return polar({
-    client: polarClient,
+    client: polarClient(),
     createCustomerOnSignUp: true,
     use: [
       checkout({
@@ -35,4 +38,16 @@ export function setupPolar() {
       }),
     ],
   })
+}
+
+export async function getPolarCustomerState(userId: string) {
+  const polar = polarClient()
+  const customerState = await polar.customers.getStateExternal({ externalId: userId })
+  return customerState
+}
+
+export async function getCustomerPortalUrl(userId: string) {
+  const polar = polarClient()
+  const customerSession = await polar.customerSessions.create({ externalCustomerId: userId })
+  return customerSession.customerPortalUrl
 }

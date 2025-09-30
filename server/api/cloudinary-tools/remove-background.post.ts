@@ -1,13 +1,17 @@
 import type { UploadApiErrorResponse, UploadApiResponse } from 'cloudinary'
 import { v2 as cloudinary } from 'cloudinary'
+import { incrementApiLimit } from '~~/server/services/user-api-limits'
 
-export default defineEventHandler(async (event) => {
+export default defineAuthenticatedEventHandler(async (event) => {
   const formData = await readFormData(event)
   const file = formData.get('image') as File
 
   if (!file) {
     throw createError({ statusCode: 400, statusMessage: 'No file uploaded' })
   }
+
+  const isPro = validateUserStatus(event.context.user.id)
+
   const arrayBuffer = await file.arrayBuffer()
   // eslint-disable-next-line node/prefer-global/buffer
   const buffer = Buffer.from(arrayBuffer)
@@ -35,5 +39,10 @@ export default defineEventHandler(async (event) => {
     })
   }
   const result = await uploadFromBuffer()
+
+  if (!isPro) {
+    await incrementApiLimit(event.context.user.id)
+  }
+
   return result.secure_url
 })

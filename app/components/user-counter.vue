@@ -2,11 +2,9 @@
 import { MAX_COUNT } from '~~/shared/utils/user-api-limit'
 
 const { upgradeUserToPro } = useAuth()
-
 const { data: userData, status } = await useFetch('/api/user', {
   key: 'userData',
 })
-
 const progress = computed(() => {
   if (userData.value) {
     return Math.min((userData.value.userApiLimitCount / MAX_COUNT) * 100, 100)
@@ -14,10 +12,12 @@ const progress = computed(() => {
 
   return 0
 })
+
+const isPro = computed(() => !!userData.value?.subscription)
 </script>
 
 <template>
-  <div v-if="status !== 'pending'" class="mt-auto">
+  <div v-if="status !== 'pending' && !isPro" class="mt-auto">
     <USeparator />
     <div class="px-3">
       <div class="py-6 px-2">

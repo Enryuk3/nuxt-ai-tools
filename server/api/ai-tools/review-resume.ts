@@ -1,6 +1,7 @@
 import { extractText, getDocumentProxy } from 'unpdf'
+import { incrementApiLimit } from '~~/server/services/user-api-limits'
 
-export default defineEventHandler(async (event) => {
+export default defineAuthenticatedEventHandler(async (event) => {
   const formData = await readFormData(event)
   const file = formData.get('resume') as File
 
@@ -10,6 +11,8 @@ export default defineEventHandler(async (event) => {
       statusMessage: 'Resume is required',
     })
   }
+
+  const isPro = validateUserStatus(event.context.user.id)
 
   const arrayBuffer = await file.arrayBuffer()
   // eslint-disable-next-line node/prefer-global/buffer
@@ -34,6 +37,10 @@ export default defineEventHandler(async (event) => {
     temperature: 0.5,
     max_completion_tokens: 1000,
   })
+
+  if (!isPro) {
+    await incrementApiLimit(event.context.user.id)
+  }
 
   return res.choices[0].message.content
 })
