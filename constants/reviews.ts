@@ -1,0 +1,58 @@
+export const aiProductReviews = [
+  {
+    user: 'Jane Doe',
+    designation: 'CEO, Rigrex',
+    url: 'https://github.com/benjamincanac.png',
+    title: 'Game-changer for productivity',
+    review: 'I\'ve saved so much time that I can now focus more on strategic decision-making.',
+  },
+  {
+    user: 'Carlos Rodriguez',
+    designation: 'Senior Developer, TechFlow',
+    url: 'https://github.com/carlos-rodriguez.png',
+    title: 'Code generation is incredibly accurate',
+    review: 'The code generation tool helped me build a complete React component library in just hours. The generated code is clean, well-documented, and follows best practices.',
+  },
+  {
+    user: 'Emily Lee',
+    designation: 'Content Creator & Podcaster',
+    url: 'https://github.com/emily-lee-dev.png',
+    title: 'Revolutionized my content workflow',
+    review: 'The AI Article Writer and Blog Title Generator have completely transformed how I create content. I can now produce high-quality articles 3x faster than before.',
+  },
+  {
+    user: 'Michael Thompson',
+    designation: 'Startup Founder, InnovateLab',
+    url: 'https://github.com/michael-thompson.png',
+    title: 'Perfect for rapid prototyping',
+    review: 'As a startup founder, speed is everything. This AI platform helps me quickly validate ideas through conversations and generate code prototypes instantly.',
+  },
+  {
+    user: 'Maria Santos',
+    designation: 'Digital Marketing Manager',
+    url: 'https://github.com/maria-santos.png',
+    title: 'Background removal saved us thousands',
+    review: 'The background removal tool is a game-changer for our e-commerce product photos. Professional-quality results without the expensive photography setup.',
+  },
+  {
+    user: 'David Kim',
+    designation: 'Freelance Designer',
+    url: 'https://github.com/david-kim-design.png',
+    title: 'Essential tool for client work',
+    review: 'The resume reviewer helped me land 40% more interviews. The AI feedback is spot-on and helped me identify weaknesses I never noticed.',
+  },
+  {
+    user: 'Sindre Sorhus',
+    designation: 'Tech Lead, DataSync',
+    url: 'https://github.com/sindresorhus.png',
+    title: 'Seamless integration with our workflow',
+    review: 'The conversational AI understands complex technical requirements perfectly. It\'s like having a senior developer available 24/7 for brainstorming sessions.',
+  },
+  {
+    user: 'Lisa Chen',
+    designation: 'Small Business Owner',
+    url: 'https://github.com/lisa-chen-biz.png',
+    title: 'Level playing field for small businesses',
+    review: 'These AI tools give me enterprise-level capabilities without the enterprise budget. The article writer helps me create professional blog content effortlessly.',
+  },
+]
