@@ -85,6 +85,7 @@ const { data: userData } = await useFetch('/api/user', {
         <UButton
           label="Open"
           :icon="!user?.image ? 'i-lucide-user' : undefined"
+          size="sm"
           color="neutral"
           variant="outline"
         >
