@@ -3,7 +3,7 @@ import type { DropdownMenuItem } from '@nuxt/ui'
 import { sidebarRoutes } from '~~/constants/tools'
 
 const open = ref(false)
-const { logout } = useAuth()
+const { logout, user } = useAuth()
 
 const items = ref<DropdownMenuItem[]>([
   {
@@ -23,6 +23,10 @@ const items = ref<DropdownMenuItem[]>([
     },
   },
 ])
+
+const { data: userData } = await useFetch('/api/user', {
+  key: 'userData',
+})
 </script>
 
 <template>
@@ -65,7 +69,9 @@ const items = ref<DropdownMenuItem[]>([
           </div>
         </template>
       </UDrawer>
+
       <UDropdownMenu
+        v-if="user"
         :items="items"
         :content="{
           align: 'start',
@@ -78,10 +84,21 @@ const items = ref<DropdownMenuItem[]>([
       >
         <UButton
           label="Open"
-          icon="i-lucide-menu"
+          :icon="!user?.image ? 'i-lucide-user' : undefined"
           color="neutral"
           variant="outline"
-        />
+        >
+          <UAvatar
+            v-if="user && user?.image"
+            :src="user.image"
+            :alt="user.name"
+            size="sm"
+          />
+          <span>
+            {{ user.name }}
+            <UBadge v-if="userData?.subscription" label="Pro" />
+          </span>
+        </UButton>
       </UDropdownMenu>
       <ThemeToggle />
     </UContainer>
