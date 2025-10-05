@@ -3,6 +3,7 @@ import { aiTools } from '~~/constants/tools'
 
 definePageMeta({
   layout: 'dashboard',
+  middleware: 'auth'
 })
 </script>
 

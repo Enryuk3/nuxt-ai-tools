@@ -5,6 +5,7 @@ import * as z from 'zod'
 
 definePageMeta({
   layout: 'dashboard',
+  middleware: 'auth',
 })
 
 const schema = z.object({
