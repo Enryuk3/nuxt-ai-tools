@@ -28,7 +28,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     email: event.data.email,
     password: event.data.password,
     name: event.data.name,
-    callbackURL: '/',
+    callbackURL: '/dashboard',
   })
   console.error(error)
 }
@@ -55,7 +55,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
             block
             @click="signIn.social({
               provider: 'google',
-              callbackURL: '/',
+              callbackURL: '/dashboard',
             })"
           >
             Google
@@ -69,7 +69,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
             block
             @click="signIn.social({
               provider: 'github',
-              callbackURL: '/',
+              callbackURL: '/dashboard',
             })"
           >
             GitHub
