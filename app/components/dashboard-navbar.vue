@@ -31,7 +31,7 @@ const { data: userData } = await useFetch('/api/user', {
 
 <template>
   <div class="fixed h-16 top-0 right-0 left-0 sm:left-72 bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
-    <UContainer class="flex h-full items-center justify-between sm:justify-end">
+    <UContainer class="flex h-full items-center justify-between sm:justify-end gap-1.5">
       <UDrawer
         v-model:open="open"
         direction="left"
