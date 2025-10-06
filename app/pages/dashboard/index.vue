@@ -3,7 +3,13 @@ import { aiTools } from '~~/constants/tools'
 
 definePageMeta({
   layout: 'dashboard',
-  middleware: 'auth'
+  middleware: 'auth',
+})
+
+useSeoMeta({
+  title: 'Dashboard',
+  description: 'Explore all the AI tools available',
+  robots: 'noindex, nofollow',
 })
 </script>
 

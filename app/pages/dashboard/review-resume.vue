@@ -8,6 +8,12 @@ definePageMeta({
   middleware: 'auth',
 })
 
+useSeoMeta({
+  title: 'Resume Reviewer',
+  description: 'Improve your resume with our AI-powered resume reviewer tool',
+  robots: 'noindex, nofollow',
+})
+
 const MAX_FILE_SIZE = 5 * 1024 * 1024 // 5MB
 
 const ACCEPTED_IMAGE_TYPES = ['application/pdf']

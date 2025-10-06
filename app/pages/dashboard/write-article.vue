@@ -8,6 +8,12 @@ definePageMeta({
   middleware: 'auth',
 })
 
+useSeoMeta({
+  title: 'Article Writer',
+  description: 'Generate complete articles with our AI-powered writing tool',
+  robots: 'noindex, nofollow',
+})
+
 const schema = z.object({
   articleTopic: z.string().min(1, 'Article topic is required'),
   articleLength: z.number(),

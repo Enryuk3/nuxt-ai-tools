@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { aiProductReviews } from '~~/constants/reviews'
 import { aiTools } from '~~/constants/tools'
+
+useSeoMeta({
+  description: 'Create amazing AI Tools with Nuxt AI Tools',
+  ogImage: '/og-image.jpg',
+  twitterCard: 'summary_large_image',
+})
 </script>
 
 <template>

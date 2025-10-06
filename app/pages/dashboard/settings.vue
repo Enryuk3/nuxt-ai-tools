@@ -4,6 +4,12 @@ definePageMeta({
   middleware: 'auth',
 })
 
+useSeoMeta({
+  title: 'Settings',
+  description: 'Manage your account subscription in Nuxt AI Tools',
+  robots: 'noindex, nofollow',
+})
+
 const { upgradeUserToPro } = useAuth()
 
 const { data: userData, status } = await useFetch('/api/user', {

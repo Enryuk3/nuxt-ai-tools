@@ -8,6 +8,16 @@ definePageMeta({
   middleware: 'auth',
 })
 
+useHead({
+  title: 'Conversación',
+})
+
+useSeoMeta({
+  title: 'Conversation',
+  description: 'Chat with the most intelligent AI and experience the power of artificial intelligence',
+  robots: 'noindex, nofollow',
+})
+
 const schema = z.object({
   userPrompt: z.string().min(1, 'Prompt is required'),
 })

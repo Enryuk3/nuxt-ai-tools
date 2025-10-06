@@ -8,6 +8,16 @@ definePageMeta({
   middleware: 'auth',
 })
 
+useHead({
+  title: 'Generador de Títulos',
+})
+
+useSeoMeta({
+  title: 'Blog Title Generator',
+  description: 'Create compelling blog titles with our AI-powered tool',
+  robots: 'noindex, nofollow',
+})
+
 const schema = z.object({
   blogTopic: z.string().min(1, 'Article topic is required'),
   blogCategory: z.string(),

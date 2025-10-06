@@ -2,6 +2,12 @@
 import type { FormSubmitEvent } from '@nuxt/ui'
 import * as z from 'zod'
 
+useSeoMeta({
+  title: 'Register',
+  description: 'Create a new account in Nuxt AI Tools',
+  robots: 'noindex, nofollow',
+})
+
 const schema = z.object({
   name: z.string().trim().min(5, 'Name must be at least 5 characters'),
   email: z.email('Invalid email address'),

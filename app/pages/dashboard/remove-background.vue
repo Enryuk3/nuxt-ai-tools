@@ -8,6 +8,12 @@ definePageMeta({
   middleware: 'auth',
 })
 
+useSeoMeta({
+  title: 'Remove Background',
+  description: 'Remove the background of your images easily with our AI tool',
+  robots: 'noindex, nofollow',
+})
+
 const MAX_FILE_SIZE = 2 * 1024 * 1024 // 2MB
 const MIN_DIMENSIONS = { width: 200, height: 200 }
 const MAX_DIMENSIONS = { width: 4096, height: 4096 }

@@ -8,6 +8,12 @@ definePageMeta({
   middleware: 'auth',
 })
 
+useSeoMeta({
+  title: 'Code Generation',
+  description: 'Generate code efficiently with our AI tool',
+  robots: 'noindex, nofollow',
+})
+
 const schema = z.object({
   userPrompt: z.string().min(1, 'Prompt is required'),
 })
